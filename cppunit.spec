@@ -5,7 +5,7 @@ Version:	1.8.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/cppunit/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/cppunit/%{name}-%{version}.tar.gz
 URL:		http://cppunit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
