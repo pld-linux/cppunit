@@ -6,6 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/cppunit/%{name}-%{version}.tar.gz
+# Source0-md5:	9f18d97ca99b4f095f5ff18139df59c3
 URL:		http://cppunit.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
