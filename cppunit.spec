@@ -50,7 +50,8 @@ Statyczna biblioteka cppunit.
 echo 'libcppunit_la_LIBADD = -lstdc++ -lpthread' >> src/cppunit/Makefile.am
 
 %build
-aclocal -I config
+rm -f missing
+%{__aclocal} -I config
 %{__autoconf}
 %{__automake}
 %configure
