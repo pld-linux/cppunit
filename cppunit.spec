@@ -68,8 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -rf $RPM_BUILD_ROOT%{_includedir}/cppunit/{ui/mfc,ui/qt,config/config-[bm]*}
-rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/html
-rmdir %{_datadir}/%{name}
+rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
