@@ -1,12 +1,12 @@
 Summary:	The C++ Unit Test Library
 Summary(pl):	Biblioteka testowa do C++
 Name:		cppunit
-Version:	1.11.6
+Version:	1.12.0
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/cppunit/%{name}-%{version}.tar.gz
-# Source0-md5:	54734b1d054277e4fc0bac0df6e0aa4d
+# Source0-md5:	7493718733ded49a96cf763c5d3eea7f
 URL:		http://cppunit.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
