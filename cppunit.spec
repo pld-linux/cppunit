@@ -1,5 +1,5 @@
 Summary:	The C++ Unit Test Library
-Summary(pl):	Biblioteka testowa do C++
+Summary(pl.UTF-8):   Biblioteka testowa do C++
 Name:		cppunit
 Version:	1.12.0
 Release:	1
@@ -19,12 +19,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 CppUnit is the C++ port of the famous JUnit framework for unit
 testing.
 
-%description -l pl
-CppUnit jest portem C++ s≥ynnego ∂rodowiska testowego JUnit.
+%description -l pl.UTF-8
+CppUnit jest portem C++ s≈Çynnego ≈õrodowiska testowego JUnit.
 
 %package devel
 Summary:	cppunit header files
-Summary(pl):	Pliki nag≥Ûwkowe cppunit
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe cppunit
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -32,19 +32,19 @@ Requires:	libstdc++-devel
 %description devel
 cppunit header files.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe cppunit.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe cppunit.
 
 %package static
 Summary:	cppunit static library
-Summary(pl):	Statyczna biblioteka cppunit
+Summary(pl.UTF-8):   Statyczna biblioteka cppunit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 cppunit static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka cppunit.
 
 %prep
