@@ -1,12 +1,12 @@
 Summary:	The C++ Unit Test Library
 Summary(pl.UTF-8):	Biblioteka testowa do C++
 Name:		cppunit
-Version:	1.12.0
-Release:	2
+Version:	1.12.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/cppunit/%{name}-%{version}.tar.gz
-# Source0-md5:	7493718733ded49a96cf763c5d3eea7f
+# Source0-md5:	bd30e9cf5523cdfc019b94f5e1d7fd19
 URL:		http://cppunit.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
@@ -67,8 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_includedir}/cppunit/{ui/mfc,ui/qt,config/config-[bm]*}
-rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}
+rm -r $RPM_BUILD_ROOT%{_includedir}/cppunit/{ui/mfc,ui/qt,config/config-[bm]*}
+rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -80,14 +80,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/DllPlugInTester
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libcppunit-1.12.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.12.so.1
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/FAQ doc/html
 %attr(755,root,root) %{_bindir}/cppunit-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libcppunit.so
+%{_libdir}/libcppunit.la
 %{_includedir}/cppunit
 %{_aclocaldir}/cppunit.m4
 %{_pkgconfigdir}/cppunit.pc
@@ -95,4 +96,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libcppunit.a
