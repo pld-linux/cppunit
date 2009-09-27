@@ -2,7 +2,7 @@ Summary:	The C++ Unit Test Library
 Summary(pl.UTF-8):	Biblioteka testowa do C++
 Name:		cppunit
 Version:	1.12.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/cppunit/%{name}-%{version}.tar.gz
@@ -21,6 +21,17 @@ testing.
 
 %description -l pl.UTF-8
 CppUnit jest portem C++ słynnego środowiska testowego JUnit.
+
+%package apidocs
+Summary:	cppunit API documentation
+Summary(pl.UTF-8):	Dokumentacja API cppunit
+Group:		Documentation
+
+%description apidocs
+cppunit API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API cppunit.
 
 %package devel
 Summary:	cppunit header files
@@ -83,9 +94,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libcppunit-1.12.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libcppunit-1.12.so.1
 
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*
+
 %files devel
 %defattr(644,root,root,755)
-%doc doc/FAQ doc/html
+%doc doc/FAQ
 %attr(755,root,root) %{_bindir}/cppunit-config
 %attr(755,root,root) %{_libdir}/libcppunit.so
 %{_libdir}/libcppunit.la
