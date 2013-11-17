@@ -1,15 +1,15 @@
 Summary:	The C++ Unit Test Library
 Summary(pl.UTF-8):	Biblioteka testowa do C++
 Name:		cppunit
-Version:	1.12.1
-Release:	4
+Version:	1.13.2
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/cppunit/%{name}-%{version}.tar.gz
-# Source0-md5:	bd30e9cf5523cdfc019b94f5e1d7fd19
-URL:		http://cppunit.sourceforge.net/
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake >= 1.4
+Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.gz
+# Source0-md5:	d1c6bdd5a76c66d2c38331e2d287bc01
+URL:		http://www.freedesktop.org/wiki/Software/cppunit/
+BuildRequires:	autoconf >= 2.65
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.4d
@@ -21,17 +21,6 @@ testing.
 
 %description -l pl.UTF-8
 CppUnit jest portem C++ słynnego środowiska testowego JUnit.
-
-%package apidocs
-Summary:	cppunit API documentation
-Summary(pl.UTF-8):	Dokumentacja API cppunit
-Group:		Documentation
-
-%description apidocs
-cppunit API documentation.
-
-%description apidocs -l pl.UTF-8
-Dokumentacja API cppunit.
 
 %package devel
 Summary:	cppunit header files
@@ -58,10 +47,19 @@ cppunit static library.
 %description static -l pl.UTF-8
 Statyczna biblioteka cppunit.
 
+%package apidocs
+Summary:	cppunit API documentation
+Summary(pl.UTF-8):	Dokumentacja API cppunit
+Group:		Documentation
+
+%description apidocs
+cppunit API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API cppunit.
+
 %prep
 %setup -q
-
-echo 'libcppunit_la_LIBADD = -ldl' >> src/cppunit/Makefile.am
 
 %build
 %{__libtoolize}
@@ -69,7 +67,8 @@ echo 'libcppunit_la_LIBADD = -ldl' >> src/cppunit/Makefile.am
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -78,8 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -r $RPM_BUILD_ROOT%{_includedir}/cppunit/{ui/mfc,ui/qt,config/config-[bm]*}
-rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
+# non-Linux
+%{__rm} -r $RPM_BUILD_ROOT%{_includedir}/cppunit/{ui/mfc,ui/qt,config/config-{bcb5,evc4,mac,msvc6}.h}
+# packaged as %doc in -apidocs
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/cppunit/html
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -91,12 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/DllPlugInTester
-%attr(755,root,root) %{_libdir}/libcppunit-1.12.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.12.so.1
-
-%files apidocs
-%defattr(644,root,root,755)
-%doc doc/html/*
+%attr(755,root,root) %{_libdir}/libcppunit-1.13.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.13.so.0
 
 %files devel
 %defattr(644,root,root,755)
@@ -112,3 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libcppunit.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*
