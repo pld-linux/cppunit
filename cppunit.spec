@@ -2,7 +2,7 @@ Summary:	The C++ Unit Test Library
 Summary(pl.UTF-8):	Biblioteka testowa do C++
 Name:		cppunit
 Version:	1.13.2
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.gz
@@ -51,6 +51,9 @@ Statyczna biblioteka cppunit.
 Summary:	cppunit API documentation
 Summary(pl.UTF-8):	Dokumentacja API cppunit
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 cppunit API documentation.
