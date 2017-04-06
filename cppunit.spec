@@ -5,9 +5,9 @@ Version:	1.13.2
 Release:	4
 License:	LGPL
 Group:		Libraries
-Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.gz
+Source0:	http://dev-www.libreoffice.org/src/cppunit/%{name}-%{version}.tar.gz
 # Source0-md5:	d1c6bdd5a76c66d2c38331e2d287bc01
-URL:		http://www.freedesktop.org/wiki/Software/cppunit/
+URL:		https://www.freedesktop.org/wiki/Software/cppunit/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	doxygen
