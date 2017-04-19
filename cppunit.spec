@@ -1,17 +1,17 @@
 Summary:	The C++ Unit Test Library
 Summary(pl.UTF-8):	Biblioteka testowa do C++
 Name:		cppunit
-Version:	1.13.2
-Release:	4
+Version:	1.14.0
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://dev-www.libreoffice.org/src/cppunit/%{name}-%{version}.tar.gz
-# Source0-md5:	d1c6bdd5a76c66d2c38331e2d287bc01
+Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.gz
+# Source0-md5:	7ad93022171710a541bfe4bfd8b4a381
 URL:		https://www.freedesktop.org/wiki/Software/cppunit/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	doxygen
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:1.4d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,7 +27,7 @@ Summary:	cppunit header files
 Summary(pl.UTF-8):	Pliki nagłówkowe cppunit
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:4.7
 
 %description devel
 cppunit header files.
@@ -80,8 +80,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libcppunit.la
 # non-Linux
-%{__rm} -r $RPM_BUILD_ROOT%{_includedir}/cppunit/{ui/mfc,ui/qt,config/config-{bcb5,evc4,mac,msvc6}.h}
+%{__rm} -r $RPM_BUILD_ROOT%{_includedir}/cppunit/config/config-{bcb5,evc4,mac,msvc6}.h
 # packaged as %doc in -apidocs
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/cppunit/html
 
@@ -95,19 +97,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/DllPlugInTester
-%attr(755,root,root) %{_libdir}/libcppunit-1.13.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.13.so.0
+%attr(755,root,root) %{_libdir}/libcppunit-1.14.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.14.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/FAQ
-%attr(755,root,root) %{_bindir}/cppunit-config
 %attr(755,root,root) %{_libdir}/libcppunit.so
-%{_libdir}/libcppunit.la
 %{_includedir}/cppunit
-%{_aclocaldir}/cppunit.m4
 %{_pkgconfigdir}/cppunit.pc
-%{_mandir}/man1/cppunit-config.1*
 
 %files static
 %defattr(644,root,root,755)
