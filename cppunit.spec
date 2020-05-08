@@ -1,12 +1,12 @@
 Summary:	The C++ Unit Test Library
 Summary(pl.UTF-8):	Biblioteka testowa do C++
 Name:		cppunit
-Version:	1.14.0
+Version:	1.15.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.gz
-# Source0-md5:	7ad93022171710a541bfe4bfd8b4a381
+# Source0-md5:	9dc669e6145cadd9674873e24943e6dd
 URL:		https://www.freedesktop.org/wiki/Software/cppunit/
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.11
@@ -51,7 +51,7 @@ Statyczna biblioteka cppunit.
 Summary:	cppunit API documentation
 Summary(pl.UTF-8):	Dokumentacja API cppunit
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
@@ -97,8 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/DllPlugInTester
-%attr(755,root,root) %{_libdir}/libcppunit-1.14.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.14.so.0
+%attr(755,root,root) %{_libdir}/libcppunit-1.15.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcppunit-1.15.so.1
 
 %files devel
 %defattr(644,root,root,755)
