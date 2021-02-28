@@ -51,9 +51,7 @@ Statyczna biblioteka cppunit.
 Summary:	cppunit API documentation
 Summary(pl.UTF-8):	Dokumentacja API cppunit
 Group:		Documentation
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 cppunit API documentation.
